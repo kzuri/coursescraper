@@ -144,13 +144,11 @@ def fourth_menu(bot, update):
                         reply_markup=fourth_keyboard())
 
 def first_lc(bot,update):
-    pass
-
-def first_lc(bot,update):
     query = update.callback_query
     chat_id = update.effective_chat.id
     query.answer()
 
+    bot.send_chat_action(chat_id=chat_id, action=telegram.ChatAction.TYPING) 
     query.edit_message_text(text="Lecture Notes coming right up!")
     
     url="https://sites.google.com/site/mth202jan2020/reading-lecture-notes"
@@ -170,7 +168,7 @@ def first_lc(bot,update):
     
     # download the pdfs to a specified location
     for url in url_list:
-       bot.send_chat_action(chat_id=chat_id, action=telegram.ChatAction.TYPING) 
+       bot.send_chat_action(chat_id=chat_id, action=telegram.ChatAction.UPLOAD_DOCUMENT) 
        bot.sendDocument(chat_id, document=url)
        
 def first_tq(bot,update):
@@ -178,6 +176,7 @@ def first_tq(bot,update):
     chat_id = update.effective_chat.id
     query.answer()
 
+    bot.send_chat_action(chat_id=chat_id, action=telegram.ChatAction.TYPING) 
     query.edit_message_text(text="Problem sets coming right up!")
     
     url="https://sites.google.com/site/mth202jan2020/problem-sets"
@@ -197,7 +196,7 @@ def first_tq(bot,update):
 
     # download the pdfs to a specified location
     for url in url_list:
-       bot.send_chat_action(chat_id=chat_id, action=telegram.ChatAction.TYPING)
+       bot.send_chat_action(chat_id=chat_id, action=telegram.ChatAction.UPLOAD_DOCUMENT)
        bot.sendDocument(chat_id, document=url)    
 
 def button(update,context):
