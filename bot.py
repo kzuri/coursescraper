@@ -294,12 +294,10 @@ def main():
     dp.add_handler(CallbackQueryHandler(first_tq,pattern='first_tq'))
     '''
 
-    #updater.start_polling()
+    updater.start_polling()
 
-    updater.start_webhook(listen="0.0.0.0",
-                          port=int(PORT),
-                          url_path=token)
-    updater.bot.setWebhook('https://coursescarper.herokuapp.com/' + token)
+   # updater.start_webhook(listen="0.0.0.0",port=int(PORT),url_path=token)
+    #updater.bot.setWebhook('https://coursescarper.herokuapp.com/' + token)
     
     updater.idle()
     
